@@ -14,19 +14,22 @@
       </tr>
     </thead>
     <tbody>
-      <!-- v-for para imprimir las tareas en la tabla -->
-
-      <tr v-for="item in tareas" :key="item.id">
-        <th scope="row">{{ item.id }}</th>
-        <td>{{ item.nombre }}</td>
+      <tr v-for="(tarea, index) in tareas" :key="index">
+        <!-- v-for para imprimir las tareas en la tabla -->
+        <th scope="row">{{ tarea.id }}</th>
+        <td>{{ tarea.nombre }}</td>
         <td>
-          <!-- {{ item.categorias.join(", ") }} -->
+          {{ tarea.categorias.join(", ") }}
+          <!-- .join() para separar por coma los elementos del array categorias[] -->
+          <!-- <span v-for="(item, index) in tarea.categorias" :key="index">
+            {{ tarea.categorias.length === index + 1 ? item : item + ", " }}
+          </span> -->
         </td>
-        <td>{{ item.estado }}</td>
-        <td>{{ item.numero }}</td>
+        <td>{{ tarea.estado }}</td>
+        <td>{{ tarea.numero }}</td>
         <td>
           <!-- Boton para eliminar tareas -->
-          <button class="btn btn-danger btn-sm" @click="deleteTareas(item.id)">
+          <button class="btn btn-danger btn-sm" @click="deleteTareas(tarea.id)">
             Eliminar
           </button>
 
@@ -36,7 +39,7 @@
             :to="{
               name: 'editar',
               params: {
-                id: item.id,
+                id: tarea.id,
               },
             }"
           >

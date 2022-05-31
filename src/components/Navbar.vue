@@ -1,22 +1,12 @@
 <template>
   <div class="navbar navbar-dark bg-dark">
-      <RouterLink v-if="usuarioAutenticado" to="/" class="navbar-brand">Tareas</RouterLink>
+    <RouterLink to="/" class="navbar-brand">Home</RouterLink>
     <div class="d-flex">
-      <RouterLink v-if="!usuarioAutenticado" to="/ingreso" class="navbar-brand">Ingresar</RouterLink>
-      <RouterLink v-if="!usuarioAutenticado" to="/registro" class="navbar-brand">Registrar</RouterLink>
-      <button v-if="usuarioAutenticado" class="btn btn-dark" @click="cerrarSesion">Cerrar Sesion</button>
+      <RouterLink to="/about" class="btn btn-dark">About</RouterLink>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-export default {
-  computed:{
-    ...mapGetters(['usuarioAutenticado'])
-  },
-  methods: {
-    ...mapActions(['cerrarSesion'])
-  },
-};
+export default {};
 </script>

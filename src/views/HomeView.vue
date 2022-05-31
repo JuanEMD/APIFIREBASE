@@ -24,7 +24,7 @@ export default {
   methods: {
 
     //mapeo para utilizar la accion setTareas tareas del store en HomeView
-    ...mapActions(["setTareas", "cargarLocalStorage"]),
+    ...mapActions(['setTareas']),
 
     procesarFormulario() {
       console.log(this.tarea);
@@ -37,6 +37,7 @@ export default {
       //generar Id
 
       this.tarea.id = nanoid();
+      console.log(this.tarea.id);
 
       // envian tareas
       this.setTareas(this.tarea);
@@ -50,9 +51,6 @@ export default {
       };
     },
   },
-  created(){
-    this.cargarLocalStorage()
-  }
 };
 </script>
 
