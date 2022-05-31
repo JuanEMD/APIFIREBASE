@@ -1,5 +1,8 @@
 <template>
-  {{ $route.params.id }} - {{ tarea }}
+  <b>ID:</b> {{ $route.params.id }}
+  <br>
+  <b>Tarea:</b> {{ tarea }}
+  <hr>
   <form @submit.prevent="updateTarea(tarea)">
     <Input :tarea="tarea" />
   </form>
